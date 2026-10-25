@@ -1,0 +1,22 @@
+{
+  "name": "three-body-archive",
+  "version": "1.0.0",
+  "private": true,
+  "description": "《三体》三部曲沉浸式设定集 —— 纯静态站点，零依赖，可直接部署到 Vercel / GitHub Pages",
+  "keywords": [
+    "三体",
+    "three-body",
+    "刘慈欣",
+    "dark-forest",
+    "static-site"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "start": "node dev-server.js",
+    "verify": "node tools/verify.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

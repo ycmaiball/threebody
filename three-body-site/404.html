@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 · 信号丢失 | 三体档案</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='35' cy='50' r='12' fill='%2358a6ff'/><circle cx='65' cy='50' r='12' fill='%23e8c37a'/></svg>">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .err-wrap {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 40px 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .err-code {
+    font-family: var(--font-mono);
+    font-size: clamp(4rem, 18vw, 9rem);
+    font-weight: 700;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--accent);
+    opacity: .55;
+    margin-bottom: 8px;
+  }
+  .err-title { font-size: clamp(1.4rem, 4vw, 2rem); margin-bottom: 16px; }
+  .err-desc {
+    color: var(--text-2);
+    max-width: 44ch;
+    margin: 0 auto 32px;
+    font-family: var(--font-serif);
+    line-height: 1.9;
+  }
+  .err-quote {
+    font-family: var(--font-mono);
+    font-size: .75rem;
+    letter-spacing: .2em;
+    color: var(--gold);
+    margin-bottom: 28px;
+    opacity: .85;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="starfield" aria-hidden="true"></canvas>
+<div class="nebula" aria-hidden="true"></div>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<main class="err-wrap">
+  <div>
+    <div class="err-code">404</div>
+    <p class="err-quote">SIGNAL LOST</p>
+    <h1 class="err-title">信号丢失</h1>
+    <p class="err-desc">
+      你所寻找的坐标不存在，或已被清理。在黑暗森林中，暴露的坐标往往意味着终结。
+    </p>
+    <a href="index.html" class="btn btn-primary">返回主序</a>
+  </div>
+</main>
+
+<script>
+/* 复用星空背景（与主站一致的视觉效果） */
+(function () {
+  const canvas = document.getElementById('starfield');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  let w, h, stars = [], dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function build() {
+    w = window.innerWidth; h = window.innerHeight;
+    canvas.width = Math.max(1, Math.floor(w * dpr));
+    canvas.height = Math.max(1, Math.floor(h * dpr));
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.max(80, Math.min(360, Math.round((w * h) / 3400)));
+    stars = Array.from({ length: n }, () => ({
+      x: Math.random() * w, y: Math.random() * h,
+      r: .35 + Math.random() * 1.5,
+      a: .2 + Math.random() * .65,
+      t: Math.random() * Math.PI * 2,
+      s: .006 + Math.random() * .022,
+      hue: Math.random() < .14 ? 42 : 218
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (const s of stars) {
+      s.t += s.s;
+      const a = s.a * (.62 + .38 * Math.sin(s.t));
+      ctx.fillStyle = `hsla(${s.hue},88%,78%,${a})`;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+
+  build();
+  window.addEventListener('resize', () => { build(); }, { passive: true });
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>

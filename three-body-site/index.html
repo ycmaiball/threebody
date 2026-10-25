@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三体 · 黑暗森林 | 刘慈欣科幻宇宙</title>
+<meta name="description" content="《三体》三部曲沉浸式设定集：从红岸基地到归零纪元，宇宙社会学、黑暗森林法则、人物图鉴与经典语录。">
+<meta name="keywords" content="三体,刘慈欣,黑暗森林,死神永生,宇宙社会学,面壁计划,黑暗森林法则">
+<meta name="author" content="三体世界观档案馆">
+<meta name="theme-color" content="#05070f">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="三体 · 黑暗森林 | 刘慈欣科幻宇宙">
+<meta property="og:description" content="给岁月以文明，而不是给文明以岁月。沉浸式探索《三体》三部曲的恢弘宇宙。">
+<meta property="og:locale" content="zh_CN">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='35' cy='50' r='12' fill='%2358a6ff'/><circle cx='65' cy='50' r='12' fill='%23e8c37a'/></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== 星空画布（固定背景） ===== -->
+<canvas id="starfield" aria-hidden="true"></canvas>
+<div class="nebula" aria-hidden="true"></div>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ===== 顶部导航 ===== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 100 100" width="26" height="26">
+          <circle cx="30" cy="50" r="11" fill="#58a6ff"/>
+          <circle cx="70" cy="50" r="11" fill="#e8c37a"/>
+        </svg>
+      </span>
+      <span class="brand-text">三体<em>·</em>档案</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="打开导航菜单" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks" aria-label="主导航">
+      <a href="#hero">序章</a>
+      <a href="#civilizations">文明</a>
+      <a href="#timeline">纪年</a>
+      <a href="#characters">人物</a>
+      <a href="#concepts">设定</a>
+      <a href="#quotes">语录</a>
+    </nav>
+  </div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+</header>
+
+<main>
+
+<!-- ===== 序章 HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal">刘慈欣 · 雨果奖获奖作品</p>
+    <h1 class="hero-title reveal">
+      <span class="line">三体</span>
+      <span class="line sub">黑暗森林</span>
+    </h1>
+    <p class="hero-tagline reveal">
+      宇宙就是一座黑暗森林，每个文明都是带枪的猎人。
+    </p>
+    <div class="hero-actions reveal">
+      <a href="#civilizations" class="btn btn-primary">进入宇宙</a>
+      <a href="#timeline" class="btn btn-ghost">查看纪年</a>
+    </div>
+  </div>
+
+  <!-- 三体运动示意 -->
+  <div class="orbit-stage reveal" aria-hidden="true">
+    <svg viewBox="0 0 400 400" class="orbit-svg" id="orbitSvg">
+      <defs>
+        <radialGradient id="sunA"><stop offset="0%" stop-color="#8fd0ff"/><stop offset="100%" stop-color="#2a6fb0"/></radialGradient>
+        <radialGradient id="sunB"><stop offset="0%" stop-color="#ffe6a8"/><stop offset="100%" stop-color="#b8862f"/></radialGradient>
+        <radialGradient id="sunC"><stop offset="0%" stop-color="#ffb0a0"/><stop offset="100%" stop-color="#a8433a"/></radialGradient>
+      </defs>
+      <circle cx="200" cy="200" r="178" class="orbit-ring"/>
+      <circle cx="200" cy="200" r="128" class="orbit-ring faint"/>
+      <circle cx="200" cy="200" r="82"  class="orbit-ring faint"/>
+      <g id="trisolaranSystem">
+        <circle id="starA" r="16" fill="url(#sunA)"/>
+        <circle id="starB" r="13" fill="url(#sunB)"/>
+        <circle id="starC" r="11" fill="url(#sunC)"/>
+      </g>
+      <circle cx="200" cy="200" r="5" fill="#6ee7ff" opacity=".8" id="planetDot"/>
+    </svg>
+    <p class="orbit-caption">三体问题 · 无解的三体运动</p>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>向下滚动</span>
+    <i></i>
+  </div>
+</section>
+
+<!-- ===== 三部曲 ===== -->
+<section class="section" id="civilizations">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="section-kicker">THE TRILOGY</p>
+      <h2 class="section-title">三部曲</h2>
+      <p class="section-desc">从文革浩劫中的一次绝望呼叫，到宇宙归零的最终审判。</p>
+    </header>
+
+    <div class="book-grid">
+      <article class="book-card reveal" data-accent="blue">
+        <div class="book-no">01</div>
+        <h3 class="book-title">三体</h3>
+        <p class="book-sub">The Three-Body Problem</p>
+        <p class="book-text">
+          绝望的叶文洁向宇宙发出地球坐标。四光年外，一个浸泡与脱水交替的文明收到了讯息，
+          并决定：消灭人类暴政，世界属于三体。
+        </p>
+        <ul class="book-tags">
+          <li>红岸基地</li><li>三体游戏</li><li>智子</li>
+        </ul>
+      </article>
+
+      <article class="book-card reveal" data-accent="gold">
+        <div class="book-no">02</div>
+        <h3 class="book-title">黑暗森林</h3>
+        <p class="book-sub">The Dark Forest</p>
+        <p class="book-text">
+          面对四百年的入侵倒计时，人类启动面壁计划。而罗辑顿悟的宇宙社会学，
+          揭示了文明之间最冷酷的生存法则。
+        </p>
+        <ul class="book-tags">
+          <li>面壁计划</li><li>黑暗森林法则</li><li>咒语</li>
+        </ul>
+      </article>
+
+      <article class="book-card reveal" data-accent="red">
+        <div class="book-no">03</div>
+        <h3 class="book-title">死神永生</h3>
+        <p class="book-sub">Death's End</p>
+        <p class="book-text">
+          从威慑纪元到掩体纪元，再到维度打击与宇宙归零。
+          程心与云天明跨越光年的情报，最终指向宇宙的终点。
+        </p>
+        <ul class="book-tags">
+          <li>威慑纪元</li><li>二向箔</li><li>归零</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 纪年 / 时间线 ===== -->
+<section class="section section-alt" id="timeline">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="section-kicker">CHRONOLOGY</p>
+      <h2 class="section-title">宇宙纪年</h2>
+      <p class="section-desc">从危机纪元到银河纪元，跨越千年的文明编年史。</p>
+    </header>
+
+    <div class="timeline" id="timelineList">
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-era">公元纪元</span>
+          <h3>红岸之响</h3>
+          <p>叶文洁在红岸基地利用太阳放大电波，向宇宙发出地球文明的第一声呼喊。八年后收到警告：不要回答。</p>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-era">危机纪元 1 年</span>
+          <h3>智子降临 · 面壁计划启动</h3>
+          <p>三体舰队启航，智子锁死地球基础物理。联合国选出四位面壁者，以绝对隐秘的战略对抗智子监视。</p>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-era">危机纪元 8 年</span>
+          <h3>咒语生效</h3>
+          <p>罗辑以恒星 187J3X1 为靶，向宇宙广播其坐标。数年后该恒星被未知力量摧毁，黑暗森林法则得到验证。</p>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-era">威慑纪元 62 年</span>
+          <h3>执剑人交接</h3>
+          <p>罗辑卸任，程心接掌引力波发射开关。就在交接后数分钟，三体世界发动突袭，威慑平衡瞬间崩塌。</p>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-era">掩体纪元 66 年</span>
+          <h3>二向箔 · 太阳系二维化</h3>
+          <p>歌者文明投下二向箔，太阳系被拖入二维。程心与艾AA乘光速飞船逃离，成为太阳系人类仅存的见证者。</p>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-era">银河纪元</span>
+          <h3>归零与新生</h3>
+          <p>宇宙质量流失，归零者呼吁重启。程心在小宇宙中留下五公斤生态球，为大宇宙的回归留下一线变数。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 人物图鉴 ===== -->
+<section class="section" id="characters">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="section-kicker">CHARACTERS</p>
+      <h2 class="section-title">人物图鉴</h2>
+      <p class="section-desc">在宇宙尺度上，每个人的选择都重逾千钧。</p>
+    </header>
+
+    <div class="char-filters reveal" id="charFilters" role="tablist" aria-label="人物阵营筛选">
+      <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">全部</button>
+      <button class="chip" data-filter="earth" role="tab" aria-selected="false">地球</button>
+      <button class="chip" data-filter="eto" role="tab" aria-selected="false">ETO</button>
+      <button class="chip" data-filter="wallfacer" role="tab" aria-selected="false">面壁者</button>
+      <button class="chip" data-filter="alien" role="tab" aria-selected="false">三体</button>
+    </div>
+
+    <div class="char-grid" id="charGrid"></div>
+  </div>
+</section>
+
+<!-- ===== 核心设定 ===== -->
+<section class="section section-alt" id="concepts">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="section-kicker">CONCEPTS &amp; TECH</p>
+      <h2 class="section-title">核心设定</h2>
+      <p class="section-desc">支撑这个宇宙运转的法则与武器。</p>
+    </header>
+    <div class="concept-grid" id="conceptGrid"></div>
+  </div>
+</section>
+
+<!-- ===== 宇宙社会学 ===== -->
+<section class="section law-section" id="law">
+  <div class="container container-narrow">
+    <header class="section-head reveal">
+      <p class="section-kicker">COSMIC SOCIOLOGY</p>
+      <h2 class="section-title">宇宙社会学</h2>
+    </header>
+
+    <div class="axioms reveal">
+      <div class="axiom">
+        <span class="axiom-no">公理一</span>
+        <p>生存是文明的第一需要。</p>
+      </div>
+      <div class="axiom">
+        <span class="axiom-no">公理二</span>
+        <p>文明不断增长和扩张，但宇宙中的物质总量保持不变。</p>
+      </div>
+    </div>
+
+    <div class="law-flow reveal">
+      <div class="law-node">
+        <h4>猜疑链</h4>
+        <p>两个文明无法确认对方是善意还是恶意，也无法确认对方是否将自己视为善意。猜疑在双方之间无限递归。</p>
+      </div>
+      <div class="law-arrow" aria-hidden="true">→</div>
+      <div class="law-node">
+        <h4>技术爆炸</h4>
+        <p>文明的技术进步并非线性，弱小的文明可能在极短时间内超越强者。因此，今天的弱者就是明天的威胁。</p>
+      </div>
+      <div class="law-arrow" aria-hidden="true">→</div>
+      <div class="law-node danger">
+        <h4>黑暗森林法则</h4>
+        <p>任何暴露自己存在的文明，都将很快被其他文明毁灭。宇宙是一座黑暗森林，每个文明都是带枪的猎人。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 经典语录 ===== -->
+<section class="section" id="quotes">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="section-kicker">QUOTES</p>
+      <h2 class="section-title">经典语录</h2>
+      <p class="section-desc">那些读完之后，再也无法忘记的句子。</p>
+    </header>
+    <div class="quote-grid" id="quoteGrid"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== 页脚 ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-text">三体<em>·</em>档案</span>
+        <p>一个致敬刘慈欣《三体》三部曲的非官方粉丝站点。</p>
+      </div>
+      <nav class="footer-nav" aria-label="页脚导航">
+        <a href="#hero">序章</a>
+        <a href="#civilizations">文明</a>
+        <a href="#timeline">纪年</a>
+        <a href="#characters">人物</a>
+        <a href="#concepts">设定</a>
+        <a href="#quotes">语录</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>本站内容基于原著设定整理，仅供学习与交流。著作权归原作者刘慈欣及相关出版方所有。</p>
+      <p class="footer-meta">© <span id="year"></span> 三体世界观档案馆 · 给岁月以文明</p>
+    </div>
+  </div>
+</footer>
+
+<!-- 回到顶部 -->
+<button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+/* 仅供本地截图/验证使用：?nomotion=1 时立即显示所有内容并关闭动画，
+   不影响生产环境（需显式传参才生效）。 */
+(function () {
+  if (!/[?&]nomotion=1/.test(location.search)) return;
+  var s = document.createElement('style');
+  s.textContent = '*,*::before,*::after{transition:none!important;animation:none!important}' +
+                  '.reveal{opacity:1!important;transform:none!important}';
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
